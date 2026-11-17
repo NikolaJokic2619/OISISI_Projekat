@@ -1,6 +1,8 @@
+using Core.Interfaces;
+
 namespace Core.Models;
 
-public class Book
+public class Book : ISerializable
 {
     public int Id { get; set; }
     public string Isbn { get; set; }
@@ -28,7 +30,7 @@ public class Book
     {
         if (values.Length != 8)
         {
-            throw new ArgumentException("An address must contain 4 fields.");
+            throw new ArgumentException("An address must contain 8 fields.");
         }
 
         Id = int.Parse(values[0]);

@@ -30,7 +30,7 @@ public class Author : ISerializable
     {
         if (values.Length != 9)
         {
-            throw new ArgumentException("An address must contain 4 fields.");
+            throw new ArgumentException("An address must contain 9 fields.");
         }
 
         Id = int.Parse(values[0]);

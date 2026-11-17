@@ -23,7 +23,7 @@ public class Address : ISerializable
     {
         if (values.Length != 5)
         {
-            throw new ArgumentException("An address must contain 4 fields.");
+            throw new ArgumentException("An address must contain 5 fields.");
         }
 
         Id = int.Parse(values[0]);

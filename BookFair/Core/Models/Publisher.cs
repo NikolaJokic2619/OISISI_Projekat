@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Interfaces;
 
 namespace Core.Models;
 
-public class Publisher
+public class Publisher : ISerializable
 {
     public int Id { get; set; }
     public string Password { get; set; }

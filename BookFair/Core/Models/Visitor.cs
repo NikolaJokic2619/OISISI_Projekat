@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using Core.Interfaces;
 
 namespace Core.Models
 {
-    public enum Status { P, B } // P-redovan B-vip
-    public class Visitor
+    public enum Status { P, B }; // P-redovan B-vip
+    public class Visitor : ISerializable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -54,7 +55,7 @@ namespace Core.Models
         {
             if (values.Length != 11)
             {
-                throw new ArgumentException("An address must contain 4 fields.");
+                throw new ArgumentException("An address must contain 11 fields.");
             }
 
             Id = int.Parse(values[0]);

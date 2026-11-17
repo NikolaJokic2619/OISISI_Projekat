@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Interfaces;
 
 namespace Core.Models;
 
-public class Shoping
+public class Shoping : ISerializable
 {
     public int Id { get; set; }
     public Visitor Visitor { get; set; }
@@ -28,7 +29,7 @@ public class Shoping
     {
         if (values.Length != 6)
         {
-            throw new ArgumentException("An address must contain 4 fields.");
+            throw new ArgumentException("An address must contain 6 fields.");
         }
 
         Id = int.Parse(values[0]);
