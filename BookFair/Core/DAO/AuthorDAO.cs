@@ -99,9 +99,6 @@ namespace Core.DAO
                 case "DateOfBirth":
                     authors = _authors.OrderBy(x => x.DateOfBirth);
                     break;
-                case "Address":
-                    authors = _authors.OrderBy(x => x.Address);
-                    break;
                 case "AddressId":
                     authors = _authors.OrderBy(x => x.AddressId);
                     break;
@@ -116,9 +113,6 @@ namespace Core.DAO
                     break;
                 case "YearsOfExperience":
                     authors = _authors.OrderBy(x => x.YearsOfExperience);
-                    break;
-                case "Books":
-                    authors = _authors.OrderBy(x => x.Books);
                     break;
             }
 

@@ -104,9 +104,6 @@ namespace Core.DAO
                 case "DateOfBirth":
                     visitors = _visitors.OrderBy(x => x.DateOfBirth);
                     break;
-                case "Address":
-                    visitors = _visitors.OrderBy(x => x.Address);
-                    break;
                 case "TelephoneNumber":
                     visitors = _visitors.OrderBy(x => x.TelephoneNumber);
                     break;
@@ -124,9 +121,6 @@ namespace Core.DAO
                     break;
                 case "AverageRating":
                     visitors = _visitors.OrderBy(x => x.AverageRating);
-                    break;
-                case "ListOfBoughtBooks":
-                    visitors = _visitors.OrderBy(x => x.ListOfBoughtBooks);
                     break;
             }
 

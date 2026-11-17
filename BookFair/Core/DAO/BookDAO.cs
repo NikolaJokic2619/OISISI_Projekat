@@ -106,20 +106,8 @@ namespace Core.DAO
                 case "PageCount":
                     books = _books.OrderBy(x => x.PageCount);
                     break;
-                case "Authors":
-                    books = _books.OrderBy(x => x.Authors);
-                    break;
-                case "Publisher":
-                    books = _books.OrderBy(x => x.Publisher);
-                    break;
                 case "PublisherId":
                     books = _books.OrderBy(x => x.PublisherId);
-                    break;
-                case "PurchasedBy":
-                    books = _books.OrderBy(x => x.PurchasedBy);
-                    break;
-                case "WishlistedBy":
-                    books = _books.OrderBy(x => x.WishlistedBy);
                     break;
             }
 
