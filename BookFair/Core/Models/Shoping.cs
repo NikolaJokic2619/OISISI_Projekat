@@ -12,7 +12,7 @@ public class Shoping : ISerializable
     public int VisitorId { get; set; }
     public Book Book { get; set; }
     public int BookId { get; set; }
-    private DateOnly dateOfBuying { get; set; }
+    public DateOnly DateOfBuying { get; set; }
     public int Rating { get; set; }
     public string Comment { get; set; }
 
@@ -20,7 +20,7 @@ public class Shoping : ISerializable
     {
         string[] csvValues =
         {
-            Id.ToString(), VisitorId.ToString(), BookId.ToString(), dateOfBuying.ToString("dd/MM/yyyy"), Rating.ToString(), Comment
+            Id.ToString(), VisitorId.ToString(), BookId.ToString(), DateOfBuying.ToString("dd/MM/yyyy"), Rating.ToString(), Comment
         };
         return csvValues;
     }
@@ -35,7 +35,7 @@ public class Shoping : ISerializable
         Id = int.Parse(values[0]);
         VisitorId = int.Parse(values[1]);
         BookId = int.Parse(values[2]);
-        dateOfBuying = DateOnly.Parse(values[3]);
+        DateOfBuying = DateOnly.Parse(values[3]);
         Rating = int.Parse(values[4]);
         Comment = values[5];
     }

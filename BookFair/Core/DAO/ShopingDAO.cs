@@ -46,6 +46,7 @@ namespace Core.DAO
             oldShoping.VisitorId = shoping.VisitorId;
             oldShoping.Book = shoping.Book;
             oldShoping.BookId = shoping.BookId;
+            oldShoping.DateOfBuying = shoping.DateOfBuying;
             oldShoping.Rating = shoping.Rating;
             oldShoping.Comment = shoping.Comment;
 
