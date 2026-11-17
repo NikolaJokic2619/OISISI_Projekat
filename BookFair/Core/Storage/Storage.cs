@@ -14,6 +14,7 @@ namespace Core.Storage
 
         public Storage(string fileName)
         {
+            Directory.CreateDirectory("../../../Data");
             _fileName = string.Format(_fileName, fileName);
         }
 
