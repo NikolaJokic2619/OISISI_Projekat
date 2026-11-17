@@ -22,7 +22,7 @@ namespace Core.Models
         public Status Status { get; set; }
         public double AverageRating { get; set; }
         public List<Shoping> ListOfBoughtBooks { get; set; } = new List<Shoping>();
-        public List<Book> WishList { get; set; }
+        public List<Book> WishList { get; set; } = new();
 
 
 
