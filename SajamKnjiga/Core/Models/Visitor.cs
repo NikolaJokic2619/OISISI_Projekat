@@ -9,7 +9,7 @@ namespace Core.Models{
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateOnly DateOfBirth { get; set; }
-        public string Adress { get; set; }
+        public Address Address { get; set; }
         public string TelephoneNumber { get; set; }
         public string Email { get; set; }
         public string NumberOfMembershipCard { get; set; }
