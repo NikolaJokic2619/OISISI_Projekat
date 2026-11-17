@@ -67,7 +67,7 @@ namespace Core.DAO
             return removingShoping;
         }
 
-        private Shoping GetShopingById(int id)
+        public Shoping? GetShopingById(int id)
         {
             return _shopings.Find(s => s.Id == id);
         }

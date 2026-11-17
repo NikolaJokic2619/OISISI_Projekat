@@ -72,7 +72,7 @@ namespace Core.DAO
             return removingBook;
         }
 
-        private Book GetBookById(int id)
+        public Book? GetBookById(int id)
         {
             return _books.Find(v => v.Id == id);
         }

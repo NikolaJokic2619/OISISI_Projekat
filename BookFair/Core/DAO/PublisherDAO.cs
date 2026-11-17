@@ -67,7 +67,7 @@ namespace Core.DAO
             return removingPublisher;
         }
 
-        private Publisher GetPublisherById(int id)
+        public Publisher? GetPublisherById(int id)
         {
             return _publishers.Find(p => p.Id == id);
         }

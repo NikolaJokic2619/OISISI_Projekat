@@ -46,7 +46,7 @@ namespace Core.DAO
             oldAddress.Number = address.Number;
             oldAddress.City = address.City;
             oldAddress.Country = address.Country;
-            
+
             _storage.Save(_addresses);
 
             return oldAddress;
@@ -65,7 +65,7 @@ namespace Core.DAO
             return removingAddress;
         }
 
-        private Address GetAddressById(int id)
+        public Address? GetAddressById(int id)
         {
             return _addresses.Find(v => v.Id == id);
         }
@@ -77,7 +77,7 @@ namespace Core.DAO
 
         public List<Address> GetAllAddresses(int page, int pageSize, string sortCriteria, SortDirection sortDirection)
         {
-            IEnumerable<Address> addresses = _addresses ;
+            IEnumerable<Address> addresses = _addresses;
 
             switch (sortCriteria)
             {

@@ -71,7 +71,7 @@ namespace Core.DAO
             return removingAuthor;
         }
 
-        private Author GetAuthorById(int id)
+        public Author? GetAuthorById(int id)
         {
             return _authors.Find(v => v.Id == id);
         }

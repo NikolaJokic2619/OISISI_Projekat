@@ -76,7 +76,7 @@ namespace Core.DAO
             return removingVisitor;
         }
 
-        private Visitor GetVisitorById(int id)
+        public Visitor? GetVisitorById(int id)
         {
             return _visitors.Find(v => v.Id == id);
         }
