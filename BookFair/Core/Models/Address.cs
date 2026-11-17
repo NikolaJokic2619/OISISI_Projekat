@@ -14,22 +14,23 @@ public class Address : ISerializable
     {
         string[] csvValues =
         {
-            Street, Number, City, Country
+            Id.ToString(), Street, Number, City, Country
         };
         return csvValues;
     }
 
     public void FromCSV(string[] values)
     {
-        if (values.Length != 4)
+        if (values.Length != 5)
         {
             throw new ArgumentException("An address must contain 4 fields.");
         }
 
-        Street = values[0];
-        Number = values[1];
-        City = values[2];
-        Country = values[3];
+        Id = int.Parse(values[0]);
+        Street = values[1];
+        Number = values[2];
+        City = values[3];
+        Country = values[4];
     }
 }
 

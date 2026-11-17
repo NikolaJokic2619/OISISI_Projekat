@@ -19,7 +19,7 @@ public class Book
     {
         string[] csvValues =
         {
-            Id.ToString(), Isbn, Title, Genre, PublicationYear.ToString(), Price.ToString(), PageCount.ToString(), PublisherId.ToString()
+            Id.ToString(), Isbn, Title, Genre, PublicationYear.ToString(), Price.ToString(), PageCount.ToString(), PublisherId.ToString("")
         };
         return csvValues;
     }
