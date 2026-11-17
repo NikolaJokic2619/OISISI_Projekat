@@ -4,6 +4,7 @@ namespace Core.Models;
 
 public class Address : ISerializable
 {
+    public int Id { get; set; }
     public string Street { get; set; }
     public string Number { get; set; }
     public string City { get; set; }
