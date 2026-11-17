@@ -6,6 +6,7 @@ namespace Core.Models
 {
     public class Publisher
     {
+        public int Id { get; set; }
         public string Password { get; set; }
         public string NameOfThePublisher { get; set; }
         public string ChiefPublisher { get; set; }

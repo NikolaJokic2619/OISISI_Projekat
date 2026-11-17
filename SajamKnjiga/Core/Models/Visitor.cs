@@ -6,6 +6,7 @@ using System.Text;
 namespace Core.Models{
     public enum Status { P, B}
     public class Visitor{
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateOnly DateOfBirth { get; set; }
