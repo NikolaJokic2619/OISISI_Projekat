@@ -98,7 +98,7 @@ namespace Core.DAO
                     visitors = _visitors.OrderBy(x => x.Name);
                     break;
                 case "Surname":
-                    visitors = _visitors.OrderBy(x => x.Name);
+                    visitors = _visitors.OrderBy(x => x.Surname);
                     break;
                 case "DateOfBirth":
                     visitors = _visitors.OrderBy(x => x.DateOfBirth);
