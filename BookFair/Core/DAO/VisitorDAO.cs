@@ -49,6 +49,7 @@ namespace Core.DAO
             oldVisitor.Surname = visitor.Surname;
             oldVisitor.DateOfBirth = visitor.DateOfBirth;
             oldVisitor.Address = visitor.Address;
+            oldVisitor.AddressId = visitor.AddressId;
             oldVisitor.TelephoneNumber = visitor.TelephoneNumber;
             oldVisitor.Email = visitor.Email;
             oldVisitor.NumberOfMembershipCard = visitor.NumberOfMembershipCard;
