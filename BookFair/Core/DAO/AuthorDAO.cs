@@ -103,7 +103,7 @@ namespace Core.DAO
                     authors = _authors.OrderBy(x => x.Address);
                     break;
                 case "AddressId":
-                    authors = _authors.OrderBy(x => x.Address);
+                    authors = _authors.OrderBy(x => x.AddressId);
                     break;
                 case "TelephoneNumber":
                     authors = _authors.OrderBy(x => x.TelephoneNumber);
