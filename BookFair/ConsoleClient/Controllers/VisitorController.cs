@@ -128,7 +128,7 @@ namespace ConsoleClient.Controllers
         public void UpdateVisitors()
         {
             int id = ConsoleInput.ReadInt("Visitor ID: ");
-            Visitor visitor = _visitorsDAO.GetVisitorById(id);
+            Visitor? visitor = _visitorsDAO.GetVisitorById(id);
 
             if(visitor is null)
             {

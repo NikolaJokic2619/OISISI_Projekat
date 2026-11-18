@@ -53,11 +53,11 @@ internal class AuthorController : Menu
     private void ShowMenu()
     {
         Console.WriteLine($"\n--- {Title} ---");
-        Console.WriteLine("1. Show all authors");
-        Console.WriteLine("2. Add author");
-        Console.WriteLine("3. Update author");
-        Console.WriteLine("4. Remove author");
-        Console.WriteLine("0. Back");
+        Console.WriteLine("1 - Show all authors");
+        Console.WriteLine("2 - Add author");
+        Console.WriteLine("3 - Update author");
+        Console.WriteLine("4 - Remove author");
+        Console.WriteLine("0 - Back");
         Console.Write("Choose an option: ");
     }
 

@@ -55,11 +55,11 @@ internal class AddressController : Menu
     private void ShowMenu()
     {
         Console.WriteLine($"\n--- {Title} ---");
-        Console.WriteLine("1. Show all addresses");
-        Console.WriteLine("2. Add address");
-        Console.WriteLine("3. Update address");
-        Console.WriteLine("4. Remove address");
-        Console.WriteLine("0. Back");
+        Console.WriteLine("1 - Show all addresses");
+        Console.WriteLine("2 - Add address");
+        Console.WriteLine("3 - Update address");
+        Console.WriteLine("4 - Remove address");
+        Console.WriteLine("0 - Back");
         Console.Write("Choose an option: ");
     }
 
