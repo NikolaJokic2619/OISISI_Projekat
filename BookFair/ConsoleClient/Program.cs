@@ -15,9 +15,9 @@ try
     {
         new AddressController(addressDao, authorDao, visitorDao),
         new AuthorController(authorDao, addressDao, publisherDao),
-        //new BookController(bookDao, publisherDao, shoppingDao),
-        //new VisitorController(visitorDao, addressDao, shoppingDao),
-        //new PublisherController(publisherDao, authorDao, bookDao),
+        new BookController(bookDao),
+        new VisitorController(visitorDao),
+        new PublisherController(publisherDao),
         new ShoppingController(shoppingDao, visitorDao, bookDao)
     };
 
