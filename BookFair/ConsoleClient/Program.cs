@@ -6,7 +6,7 @@ try
 {
     Menu[] menus =
     {
-
+        new AddressController(new AddressDAO())
     };
 
     new MainMenu(menus).Run();
