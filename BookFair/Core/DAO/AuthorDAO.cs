@@ -13,7 +13,7 @@ namespace Core.DAO
 
         public AuthorDAO()
         {
-            _storage = new Storage<Author>("author.txt");
+            _storage = new Storage<Author>("author.csv");
             _authors = _storage.Load();
         }
 
