@@ -4,18 +4,22 @@ using Core.Interfaces;
 using Core.Serialization;
 using System.Text;
 
+
 namespace Core.Storage
 {
     public class Storage<T> where T : ISerializable, new()
     {
-        private readonly string _fileName = @"../../../Data/{0}";
+        private readonly string _fileName;
 
         private readonly Serializer<T> _serializer = new();
 
         public Storage(string fileName)
         {
-            Directory.CreateDirectory("../../../Data");
-            _fileName = string.Format(_fileName, fileName);
+            string dataDirectory = Path.GetFullPath(
+                Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Core", "Data"));
+
+            Directory.CreateDirectory(dataDirectory);
+            _fileName = Path.Combine(dataDirectory, fileName);
         }
 
         public List<T> Load()
