@@ -13,7 +13,7 @@ namespace Core.DAO
 
         public AddressDAO()
         {
-            _storage = new Storage<Address>("address.txt");
+            _storage = new Storage<Address>("address.csv");
             _addresses = _storage.Load();
         }
 

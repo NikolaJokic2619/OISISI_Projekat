@@ -16,7 +16,7 @@ namespace Core.DAO
 
         public VisitorDAO()
         {
-            _storage = new Storage<Visitor>("visitor.txt");
+            _storage = new Storage<Visitor>("visitor.csv");
             _visitors = _storage.Load();
         }
 

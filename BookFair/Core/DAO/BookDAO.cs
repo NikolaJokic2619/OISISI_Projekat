@@ -13,7 +13,7 @@ namespace Core.DAO
 
         public BookDAO()
         {
-            _storage = new Storage<Book>("book.txt");
+            _storage = new Storage<Book>("book.csv");
             _books = _storage.Load();
         }
 

@@ -13,7 +13,7 @@ namespace Core.DAO
 
         public ShopingDAO()
         {
-            _storage = new Storage<Shoping>("shoping.txt");
+            _storage = new Storage<Shoping>("shoping.csv");
             _shopings = _storage.Load();
         }
 

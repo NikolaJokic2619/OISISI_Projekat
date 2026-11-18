@@ -13,7 +13,7 @@ namespace Core.DAO
 
         public PublisherDAO()
         {
-            _storage = new Storage<Publisher>("publisher.txt");
+            _storage = new Storage<Publisher>("publisher.csv");
             _publishers = _storage.Load();
         }
 
