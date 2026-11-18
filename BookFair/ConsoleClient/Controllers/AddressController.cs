@@ -9,10 +9,14 @@ namespace ConsoleClient.Controllers;
 internal class AddressController : Menu
 {
     private readonly AddressDAO _addressDao;
+    private readonly AuthorDAO _authorDao;
+    private readonly VisitorDAO _visitorDao;
 
-    public AddressController(AddressDAO addressDao)
+    public AddressController(AddressDAO addressDao, AuthorDAO authorDao, VisitorDAO visitorDao)
     {
         _addressDao = addressDao;
+        _authorDao = authorDao;
+        _visitorDao = visitorDao;
     }
 
     public string Title => "Addresses";
@@ -124,6 +128,13 @@ internal class AddressController : Menu
     private void RemoveAddress()
     {
         int id = ConsoleInput.ReadInt("Address ID: ");
+        if (_authorDao.GetAllAuthors().Any(author => author.AddressId == id)
+            || _visitorDao.GetAllVisitors().Any(visitor => visitor.AddressId == id))
+        {
+            Console.WriteLine("An author or visitor uses this address. Reassign them before removing the address.");
+            return;
+        }
+
         Address? removedAddress = _addressDao.RemoveAddress(id);
 
         if (removedAddress is null)
