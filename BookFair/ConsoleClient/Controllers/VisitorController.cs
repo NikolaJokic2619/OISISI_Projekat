@@ -2,7 +2,6 @@
 using ConsoleClient.Utils;
 using Core.DAO;
 using Core.Models;
-using System.Net;
 
 namespace ConsoleClient.Controllers
 {
@@ -128,7 +127,7 @@ namespace ConsoleClient.Controllers
         public void UpdateVisitors()
         {
             int id = ConsoleInput.ReadInt("Visitor ID: ");
-            Visitor visitor = _visitorsDAO.GetVisitorById(id);
+            Visitor? visitor = _visitorsDAO.GetVisitorById(id);
 
             if(visitor is null)
             {
