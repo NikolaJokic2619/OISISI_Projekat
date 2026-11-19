@@ -9,10 +9,12 @@ namespace ConsoleClient.Controllers
     class VisitorController : Menu
     {
         private readonly VisitorDAO _visitorsDAO;
+        private readonly AddressDAO _addressDAO;
 
-        public VisitorController(VisitorDAO visitorDAO)
+        public VisitorController(VisitorDAO visitorDAO, AddressDAO addressDAO)
         {
             _visitorsDAO = visitorDAO;
+            _addressDAO = addressDAO;
         }
 
         public string Title => "Visitors";
@@ -93,9 +95,18 @@ namespace ConsoleClient.Controllers
             Console.WriteLine($" Average rating:    {visitor.AverageRating:F2}");
         }
 
-        public static Visitor InputVisitor()
+        public Visitor? InputVisitor()
         {
             Console.WriteLine("\n--- Enter visitor information ---");
+
+            int addressId = ConsoleInput.ReadInt("Address ID: ");
+            Address? address = _addressDAO.GetAddressById(addressId);
+
+            if (address is null)
+            {
+                Console.WriteLine("Address does not exist!");
+                return null;
+            }
 
             return new Visitor
             {
@@ -121,8 +132,13 @@ namespace ConsoleClient.Controllers
         }
         public void AddVisitors()
         {
-            Visitor visitor = _visitorsDAO.AddVisitor(InputVisitor());
-            Console.WriteLine($"ID of the added visitor: {visitor.Id}");
+            Visitor? visitor = InputVisitor();
+
+            if (visitor is null)
+                return;
+
+            Visitor addedVisitor = _visitorsDAO.AddVisitor(visitor);
+            Console.WriteLine($"ID of the current added visitor: {addedVisitor.Id}");  
         }
 
         public void UpdateVisitors()
@@ -140,8 +156,15 @@ namespace ConsoleClient.Controllers
             PrintVisitor(visitor);
 
             Console.WriteLine("Enter all new values:");
-            Visitor updatedVisitor = InputVisitor();
+            Visitor? updatedVisitor = InputVisitor();
+
+            if (updatedVisitor is null)
+                return;
+
             updatedVisitor.Id = id;
+            updatedVisitor.AverageRating = visitor.AverageRating;
+            updatedVisitor.ListOfBoughtBooks = visitor.ListOfBoughtBooks;
+            updatedVisitor.WishList = visitor.WishList;
 
             _visitorsDAO.UpdateVisitor(updatedVisitor);
             Console.WriteLine("Visitor updated.");
