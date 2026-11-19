@@ -85,6 +85,7 @@ internal class ShoppingController : Menu
         }
 
         Shoping addedPurchase = _shoppingDao.AddShoping(purchase);
+        RefreshVisitorPurchases();
         Console.WriteLine($"Purchase added. ID: {addedPurchase.Id}");
     }
 
@@ -109,6 +110,7 @@ internal class ShoppingController : Menu
         }
 
         _shoppingDao.UpdateShoping(updatedPurchase);
+        RefreshVisitorPurchases();
         Console.WriteLine("Purchase updated.");
     }
 
@@ -116,6 +118,7 @@ internal class ShoppingController : Menu
     {
         int id = ConsoleInput.ReadInt("Purchase ID: ");
         Shoping? removedPurchase = _shoppingDao.RemoveShoping(id);
+        RefreshVisitorPurchases();
         Console.WriteLine(removedPurchase is null ? "Purchase not found." : "Purchase removed.");
     }
 
@@ -162,5 +165,27 @@ internal class ShoppingController : Menu
         Console.WriteLine(
             $"ID: {purchase.Id} | Visitor ID: {purchase.VisitorId} | Book ID: {purchase.BookId} | " +
             $"Purchased: {purchase.DateOfBuying:dd'/'MM'/'yyyy} | Rating: {purchase.Rating} | Comment: {purchase.Comment}");
+    }
+
+    private void RefreshVisitorPurchases()
+    {
+        foreach (Visitor visitor in _visitorDao.GetAllVisitors())
+        {
+            visitor.ListOfBoughtBooks.Clear();
+        }
+
+        foreach (Shoping purchase in _shoppingDao.GetAllShopings())
+        {
+            Visitor? visitor = _visitorDao.GetVisitorById(purchase.VisitorId);
+            Book? book = _bookDao.GetBookById(purchase.BookId);
+
+            purchase.Visitor = visitor!;
+            purchase.Book = book!;
+
+            if (visitor != null && book != null)
+            {
+                visitor.ListOfBoughtBooks.Add(purchase);
+            }
+        }
     }
 }

@@ -58,6 +58,7 @@ namespace Core.DAO
             oldVisitor.AverageRating = visitor.AverageRating;
             oldVisitor.ListOfBoughtBooks = visitor.ListOfBoughtBooks;
             oldVisitor.WishList = visitor.WishList;
+            oldVisitor.WishListBookIds = visitor.WishListBookIds;
 
             _storage.Save(_visitors);
 

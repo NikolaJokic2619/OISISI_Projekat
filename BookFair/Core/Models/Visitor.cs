@@ -23,6 +23,7 @@ namespace Core.Models
         public double AverageRating { get; set; }
         public List<Shoping> ListOfBoughtBooks { get; set; } = new List<Shoping>();
         public List<Book> WishList { get; set; } = new();
+        public List<int> WishListBookIds { get; set; } = new();
 
 
 
@@ -46,14 +47,15 @@ namespace Core.Models
                 NumberOfMembershipCard,
                 CurrentYearOfMembership.ToString(),
                 StatusString,
-                AverageRating.ToString()
-            };
+                AverageRating.ToString(),
+                string.Join(";", WishList.Select(book => book.Id))
+    };
             return csvValues;
         }
 
         public void FromCSV(string[] values)
         {
-            if (values.Length != 11)
+            if (values.Length != 11 && values.Length != 12)
             {
                 throw new ArgumentException("An address must contain 11 fields.");
             }
@@ -72,6 +74,9 @@ namespace Core.Models
             else
                 Status = Status.B;
             AverageRating = double.Parse(values[10]);
+            WishListBookIds = values.Length == 12 && !string.IsNullOrWhiteSpace(values[11])
+                ? values[11].Split(';').Select(int.Parse).ToList()
+                : new List<int>();
         }
     }
 }

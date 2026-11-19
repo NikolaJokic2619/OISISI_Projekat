@@ -93,6 +93,32 @@ namespace ConsoleClient.Controllers
             Console.WriteLine($" Membership year:   {visitor.CurrentYearOfMembership}");
             Console.WriteLine($" Status:            {(visitor.Status == Status.P ? "Regular" : "VIP")}");
             Console.WriteLine($" Average rating:    {visitor.AverageRating:F2}");
+
+            if (visitor.ListOfBoughtBooks.Count == 0)
+            {
+                Console.WriteLine("No bought books.");
+            }
+            else
+            {
+                foreach (Shoping shopping in visitor.ListOfBoughtBooks)
+                {
+                    Console.WriteLine($" Book ID: {shopping.BookId}");
+                }
+            }
+
+            Console.WriteLine("WISH LIST");
+
+            if (visitor.WishList.Count == 0)
+            {
+                Console.WriteLine("Wish list is empty.");
+            }
+            else
+            {
+                foreach (Book book in visitor.WishList)
+                {
+                    Console.WriteLine($" Book ID: {book.Id}");
+                }
+            }
         }
 
         public Visitor? InputVisitor()
@@ -165,6 +191,7 @@ namespace ConsoleClient.Controllers
             updatedVisitor.AverageRating = visitor.AverageRating;
             updatedVisitor.ListOfBoughtBooks = visitor.ListOfBoughtBooks;
             updatedVisitor.WishList = visitor.WishList;
+            updatedVisitor.WishListBookIds = visitor.WishListBookIds;
 
             _visitorsDAO.UpdateVisitor(updatedVisitor);
             Console.WriteLine("Visitor updated.");
