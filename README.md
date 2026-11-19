@@ -22,7 +22,7 @@ Nikola Jokić:
 - Implemented Controller classes: BookController.cs, AuthirController.cs & AddressController
 
 Danilo Obradović:
-- Added following classes: Visitor.cs, Book.cs, Shooping.cs, Author.cs, Publisher.cs & Author.cs
+- Added following classes: Visitor.cs, Book.cs, Shooping.cs, Author.cs, Publisher.cs & Address.cs
 - Implemented classes for Data Access Objects (DAO)
 - Implemented the Storage.cs class
 - Implemented Controller classes: VisitorController.cs, ShoppingController.cs & PublisherController
