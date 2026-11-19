@@ -12,6 +12,21 @@ A C# course project for managing records at a book fair. The console client uses
 - List, add, edit, and remove addresses, authors, books, visitors, publishers, and purchases.
 - Changes are saved automatically and loaded when the application restarts.
 
+## Task allocation
+
+Nikola Jokić:
+- Added & implemented the logic of conversion from and to csv files in all base classes
+- Implemented Serialization of all the classes
+- Implemented Menu classes for visual representation of the data
+- Implemented Utility class
+- Implemented Controller classes: BookController.cs, AuthirController.cs & AddressController
+
+Danilo Obradović:
+- Added following classes: Visitor.cs, Book.cs, Shooping.cs, Author.cs, Publisher.cs & Author.cs
+- Implemented classes for Data Access Objects (DAO)
+- Implemented the Storage.cs class
+- Implemented Controller classes: VisitorController.cs, ShoppingController.cs & PublisherController
+
 ## Run the Console
 
 Install the **.NET 10 SDK**.
