@@ -19,11 +19,7 @@ namespace Core.DAO
 
         private int GenerateID()
         {
-            if (_books.Count == 0)
-            {
-                return 0;
-            }
-            return _books[^1].Id + 1;
+            return _books.Count == 0 ? 0 : checked(_books.Max(a => a.Id) + 1);
         }
 
         public Book AddBook(Book book)

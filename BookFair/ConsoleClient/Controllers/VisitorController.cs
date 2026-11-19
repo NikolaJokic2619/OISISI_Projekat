@@ -64,13 +64,13 @@ namespace ConsoleClient.Controllers
         {
             List<Visitor> visitors = _visitorsDAO.GetAllVisitors();
 
-            if(visitors.Count == 0)
+            if (visitors.Count == 0)
             {
                 Console.WriteLine("No visitors found");
                 return;
             }
 
-            foreach(Visitor visitor in visitors)
+            foreach (Visitor visitor in visitors)
             {
                 PrintVisitor(visitor);
             }
@@ -86,7 +86,7 @@ namespace ConsoleClient.Controllers
             Console.WriteLine($" Address ID:        {visitor.AddressId}");
             Console.WriteLine($" Telephone:         {visitor.TelephoneNumber}");
             Console.WriteLine($" Email:             {visitor.Email}");
-            
+
             Console.WriteLine(" MEMBERSHIP INFORMATION");
 
             Console.WriteLine($" Membership card:   {visitor.NumberOfMembershipCard}");
@@ -139,7 +139,8 @@ namespace ConsoleClient.Controllers
                 Name = ConsoleInput.ReadRequiredText("Name: "),
                 Surname = ConsoleInput.ReadRequiredText("Surname: "),
                 DateOfBirth = DateOnly.Parse(ConsoleInput.ReadRequiredText("Date of birth (dd/mm/yyyy): ")),
-                AddressId = ConsoleInput.ReadInt("Address ID: "),
+                Address = address,
+                AddressId = address.Id,
                 TelephoneNumber = ConsoleInput.ReadRequiredText("Telephone: "),
                 Email = ConsoleInput.ReadRequiredText("Email: "),
                 NumberOfMembershipCard = ConsoleInput.ReadRequiredText("Membership card number: "),
@@ -148,7 +149,7 @@ namespace ConsoleClient.Controllers
                 {
                     "P" => Status.P,
                     "B" => Status.B,
-                     _ => throw new ArgumentException("Invalid status.")
+                    _ => throw new ArgumentException("Invalid status.")
                     // _ - ANY OTHER character besides P and B
                 },
                 AverageRating = 0.0
@@ -164,7 +165,7 @@ namespace ConsoleClient.Controllers
                 return;
 
             Visitor addedVisitor = _visitorsDAO.AddVisitor(visitor);
-            Console.WriteLine($"ID of the current added visitor: {addedVisitor.Id}");  
+            Console.WriteLine($"ID of the current added visitor: {addedVisitor.Id}");
         }
 
         public void UpdateVisitors()
@@ -172,7 +173,7 @@ namespace ConsoleClient.Controllers
             int id = ConsoleInput.ReadInt("Visitor ID: ");
             Visitor? visitor = _visitorsDAO.GetVisitorById(id);
 
-            if(visitor is null)
+            if (visitor is null)
             {
                 Console.WriteLine("Visitor does not exists!");
                 return;

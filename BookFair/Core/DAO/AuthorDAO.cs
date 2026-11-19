@@ -19,11 +19,7 @@ namespace Core.DAO
 
         private int GenerateID()
         {
-            if (_authors.Count == 0)
-            {
-                return 0;
-            }
-            return _authors[^1].Id + 1;
+            return _authors.Count == 0 ? 0 : checked(_authors.Max(a => a.Id) + 1);
         }
 
         public Author AddAuthor(Author author)

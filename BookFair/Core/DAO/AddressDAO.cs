@@ -19,11 +19,7 @@ namespace Core.DAO
 
         private int GenerateID()
         {
-            if (_addresses.Count == 0)
-            {
-                return 0;
-            }
-            return _addresses[^1].Id + 1;
+            return _addresses.Count == 0 ? 0 : checked(_addresses.Max(a => a.Id) + 1);
         }
 
         public Address AddAddress(Address address)

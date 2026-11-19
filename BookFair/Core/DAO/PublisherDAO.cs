@@ -19,11 +19,7 @@ namespace Core.DAO
 
         private int GenerateID()
         {
-            if (_publishers.Count == 0)
-            {
-                return 0;
-            }
-            return _publishers[^1].Id + 1;
+            return _publishers.Count == 0 ? 0 : checked(_publishers.Max(a => a.Id) + 1);
         }
 
         public Publisher AddPublisher(Publisher publisher)

@@ -22,11 +22,7 @@ namespace Core.DAO
 
         private int GenerateID()
         {
-            if (_visitors.Count == 0)
-            {
-                return 0;
-            }
-            return _visitors[^1].Id + 1;
+            return _visitors.Count == 0 ? 0 : checked(_visitors.Max(a => a.Id) + 1);
         }
 
         public Visitor AddVisitor(Visitor visitor)
